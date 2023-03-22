@@ -11,7 +11,7 @@ class ProtectTableViewCell: UITableViewCell {
     
     static let identifier = "protectCell"
     
-    var model: [Model] = []
+    var model = CreateJson().createProtectModel()
 
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var protectView: UIView!
@@ -27,9 +27,6 @@ class ProtectTableViewCell: UITableViewCell {
         
         collectionView.dataSource = self
         collectionView.delegate  = self
-        
-        createModel()
-
     }
     
     static func nib() -> UINib {
@@ -47,27 +44,9 @@ class ProtectTableViewCell: UITableViewCell {
         protectDescriptionLable.text  = "Protect your new scooter"
         protectDescriptionLable.font = UIFont.systemFont(ofSize: 12)
     }
-    
-    func createModel() {
-        model.append(Model(
-            firstImage: UIImage(named: "Ellipse1"),
-            cardTitle: "THEFT AND LOSS",
-            protectTitle: "Apollo Care + Theft and Loss",
-            protectDescription: "$129 USD or $6.99/mo.",
-            logo: UIImage(named: "logo")!,
-            contentModeImage: "Top Right"))
-        
-        model.append(Model(
-            firstImage: UIImage(named: "Ellipse2"),
-            secondImage: UIImage(named: "protectFoto"),
-            cardTitle: "APOLLO CARE",
-            protectTitle: "Apollo Care",
-            protectDescription: "$129 USD or $6.99/mo.",
-            logo: UIImage(named: "logo")!,
-            contentModeImage: "Bottom Right"))
-    }
-    
 }
+
+//MARK:: TableView Delegate e DataSource
 
 extension ProtectTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -93,12 +72,3 @@ extension ProtectTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
 
 }
 
-struct Model {
-    var firstImage: UIImage?
-    var secondImage: UIImage?
-    var cardTitle: String
-    var protectTitle: String
-    var protectDescription: String
-    var logo: UIImage
-    var contentModeImage: String
-}

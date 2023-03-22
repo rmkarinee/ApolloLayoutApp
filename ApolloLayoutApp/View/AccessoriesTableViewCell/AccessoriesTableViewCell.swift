@@ -32,7 +32,6 @@ class AccessoriesTableViewCell: UITableViewCell {
     }
     
     func configCell() {
-        
         sessionAccessoriesView.backgroundColor = UIColor.black
         collectionView.backgroundColor = UIColor.clear
 
@@ -42,10 +41,11 @@ class AccessoriesTableViewCell: UITableViewCell {
 
         sessionDescriptionLabel.text  = "Buy new great stuff for your scooter"
         sessionDescriptionLabel.font = UIFont.systemFont(ofSize: 17)
-//        sessionDescriptionLabel.textColor = UIColor(red: 204, green: 204, blue: 204, alpha: 1)
     }
-    
 }
+
+
+//MARK:: CollectionView Delegate e DataSource
 
 extension AccessoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -68,5 +68,4 @@ extension AccessoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(15)
     }
-
 }

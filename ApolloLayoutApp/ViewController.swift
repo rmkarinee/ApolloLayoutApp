@@ -10,18 +10,14 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
-//    let data = ["One", "Two", "Three"]
+    var modelTabBar = CreateJson().createTabBarModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         registerCells()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-
     }
     
     func registerCells() {
@@ -30,17 +26,17 @@ class ViewController: UIViewController {
         
         self.tableView.register(AccessoriesTableViewCell.nib(), forCellReuseIdentifier: AccessoriesTableViewCell.identifier)
         self.tableView.register(ProtectTableViewCell.nib(), forCellReuseIdentifier: ProtectTableViewCell.identifier)
+        self.tableView.register(TabBarTableViewCell.nib(), forCellReuseIdentifier: TabBarTableViewCell.identifier)
     }
 }
 
 
-//MARK:: HeaderTableView Delegate e DataSource
+//MARK:: TableView Delegate e DataSource
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.data.count
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,6 +70,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 upgradesCell.selectionStyle = .none
                 upgradesCell.configUpgradesCell()
                 return upgradesCell
+            }
+        }
+        
+        if indexPath.row == 4 {
+            if let tabBarCell = self.tableView.dequeueReusableCell(withIdentifier: "tabBarCell", for: indexPath) as? TabBarTableViewCell {
+                tabBarCell.selectionStyle = .none
+                tabBarCell.config(model: modelTabBar)
+                return tabBarCell
             }
         }
         

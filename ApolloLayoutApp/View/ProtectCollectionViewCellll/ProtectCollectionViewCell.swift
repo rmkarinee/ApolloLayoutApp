@@ -30,7 +30,7 @@ class ProtectCollectionViewCell: UICollectionViewCell {
         return UINib(nibName: "ProtectCollectionViewCell", bundle: nil)
     }
     
-    func config(model: Model) {
+    func config(model: ProtectModel) {
         
         view.backgroundColor = .clear
         view.layer.cornerRadius = 16
@@ -56,8 +56,6 @@ class ProtectCollectionViewCell: UICollectionViewCell {
         if let frontImage = model.secondImage {
             frontImageView.image = frontImage
         }
-        
-
     }
 
 }

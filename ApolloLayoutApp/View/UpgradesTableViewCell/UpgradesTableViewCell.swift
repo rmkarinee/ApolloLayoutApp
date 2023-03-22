@@ -62,7 +62,5 @@ class UpgradesTableViewCell: UITableViewCell {
         cardButtonLayout.titleLabel?.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         cardButtonLayout.backgroundColor = .orange
         cardButtonLayout.layer.cornerRadius = 15
-        
     }
-    
 }
